@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:opencv_4/factory/colormaps/applycolormap_factory.dart';
 import 'package:opencv_4/factory/colorspace/cvtcolor_factory.dart';
+import 'package:opencv_4/factory/houghcircles/houghcircles_factory.dart';
 import 'package:opencv_4/factory/imagefilter/bilateralfilter_factory.dart';
 import 'package:opencv_4/factory/imagefilter/blur_factory.dart';
 import 'package:opencv_4/factory/imagefilter/boxfilter_factory.dart';
@@ -583,6 +584,31 @@ class Cv2 {
         pathString: pathString,
         outputDepth: outputDepth,
         kernelSize: kernelSize);
+
+    /// Function returns the response from method channel
+    return result;
+  }
+
+  /// [HoughCircles] function of Module: Miscellaneous Image Transformations
+  static Future<dynamic> houghCircles({
+    CVPathFrom pathFrom = CVPathFrom.ASSETS,
+    required String pathString,
+    required double maxValue,
+    required int adaptiveMethod,
+    required int thresholdType,
+    required int blockSize,
+    required double constantValue,
+  }) async {
+    /// Variable to store operation result
+    final dynamic result = await HoughCirclesFactory.houghCircles(
+      pathFrom: pathFrom,
+      pathString: pathString,
+      maxValue: maxValue,
+      adaptiveMethod: adaptiveMethod,
+      thresholdType: thresholdType,
+      blockSize: blockSize,
+      constantValue: constantValue,
+    );
 
     /// Function returns the response from method channel
     return result;

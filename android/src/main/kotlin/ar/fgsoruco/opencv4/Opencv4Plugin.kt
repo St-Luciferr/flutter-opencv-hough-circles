@@ -265,6 +265,23 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
           result.error("OpenCV-Error", "Android: "+e.message, e)
         }
       }
+      // houghCircles
+      "houghcircles" -> {
+        try {
+          AdaptiveThresholdFactory.process(
+                  call.argument<Int>("pathType") as Int,
+                  call.argument<String>("pathString") as String,
+                  call.argument<ByteArray>("data") as ByteArray,
+                  call.argument<Double>("maxValue") as Double,
+                  call.argument<Int>("adaptiveMethod") as Int,
+                  call.argument<Int>("thresholdType") as Int,
+                  call.argument<Int>("blockSize") as Int,
+                  call.argument<Double>("constantValue") as Double,
+                  result)
+        } catch (e: Exception) {
+          result.error("OpenCV-Error", "Android: "+e.message, e)
+        }
+      }
       //Module: Miscellaneous Image Transformations
       "adaptiveThreshold" -> {
         try {

@@ -58,12 +58,22 @@ class _MyHomePageState extends State<MyHomePage> {
   }) async {
     try {
       //test with threshold
-      _byte = await Cv2.threshold(
+     /* _byte = await Cv2.threshold(
         pathFrom: pathFrom,
         pathString: pathString,
         maxThresholdValue: maxThresholdValue,
         thresholdType: thresholdType,
         thresholdValue: thresholdValue,
+      );*/
+
+      _byte = await Cv2.houghCircles(
+        pathFrom: CVPathFrom.ASSETS,
+        pathString: 'assets/etalon4.png',
+        maxValue: 125,
+        adaptiveMethod: Cv2.ADAPTIVE_THRESH_MEAN_C,
+        thresholdType: Cv2.THRESH_BINARY,
+        blockSize: 11,
+        constantValue: 12,
       );
 
       setState(() {
