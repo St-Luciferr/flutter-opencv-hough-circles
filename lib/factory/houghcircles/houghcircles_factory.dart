@@ -37,6 +37,10 @@ class HoughCirclesFactory {
     switch (pathFrom) {
       case CVPathFrom.GALLERY_CAMERA:
         result = await platform.invokeMethod(name, {
+          "pathType": 1,
+          "pathString": pathString,
+          "data": Uint8List(0),
+
           'method': method,
           'dp': dp,
           'minDist': minDist,
@@ -53,6 +57,10 @@ class HoughCirclesFactory {
       case CVPathFrom.URL:
         _file = await DefaultCacheManager().getSingleFile(pathString);
         result = await platform.invokeMethod(name, {
+          "pathType": 2,
+          "pathString": '',
+          "data": await _file.readAsBytes(),
+
           'method': method,
           'dp': dp,
           'minDist': minDist,
@@ -70,6 +78,10 @@ class HoughCirclesFactory {
       case CVPathFrom.ASSETS:
         _fileAssets = await Utils.imgAssets2Uint8List(pathString);
         result = await platform.invokeMethod(name, {
+          "pathType": 3,
+          "pathString": '',
+          "data": _fileAssets,
+
           'method': method,
           'dp': dp,
           'minDist': minDist,
