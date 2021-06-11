@@ -283,6 +283,8 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
                   call.argument<String>("centerColor") as String,
                   call.argument<Int>("circleWidth") as Int,
                   call.argument<String>("circleColor") as String,
+                  call.argument<Int>("minRadius") as Int,
+                  call.argument<Int>("maxRadius") as Int,
                   result)
         } catch (e: Exception) {
           result.error("OpenCV-Error", "houghCircles Android: "+e.message, e)

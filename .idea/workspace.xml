@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c8279b-d102-429f-acc5-7cc2d33524f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/Opencv4Plugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/Opencv4Plugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/houghcircles/HoughCirclesFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/houghcircles/HoughCirclesFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/miscellaneous/AdaptiveThresholdFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/miscellaneous/AdaptiveThresholdFactory.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,38 +52,38 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1586" height="303" key="GridCell.Tab.0.bottom" timestamp="1623439886574">
+    <state width="1742" height="231" key="GridCell.Tab.0.bottom" timestamp="1623443620973">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1586" height="303" key="GridCell.Tab.0.bottom/0.23.1920.984@0.23.1920.984" timestamp="1623439886574" />
+    <state width="1742" height="231" key="GridCell.Tab.0.bottom/0.23.1920.984@0.23.1920.984" timestamp="1623443620973" />
     <state width="1586" height="303" key="GridCell.Tab.0.bottom/0.23.1920.986@0.23.1920.986" timestamp="1623439394254" />
     <state width="1291" height="229" key="GridCell.Tab.0.bottom/0.23.1920.988@0.23.1920.988" timestamp="1623412468823" />
-    <state width="1586" height="303" key="GridCell.Tab.0.center" timestamp="1623439886573">
+    <state width="1742" height="231" key="GridCell.Tab.0.center" timestamp="1623443620972">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1586" height="303" key="GridCell.Tab.0.center/0.23.1920.984@0.23.1920.984" timestamp="1623439886573" />
+    <state width="1742" height="231" key="GridCell.Tab.0.center/0.23.1920.984@0.23.1920.984" timestamp="1623443620972" />
     <state width="1586" height="303" key="GridCell.Tab.0.center/0.23.1920.986@0.23.1920.986" timestamp="1623439394253" />
     <state width="1291" height="229" key="GridCell.Tab.0.center/0.23.1920.988@0.23.1920.988" timestamp="1623412468822" />
-    <state width="1586" height="303" key="GridCell.Tab.0.left" timestamp="1623439886573">
+    <state width="1742" height="231" key="GridCell.Tab.0.left" timestamp="1623443620972">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1586" height="303" key="GridCell.Tab.0.left/0.23.1920.984@0.23.1920.984" timestamp="1623439886573" />
+    <state width="1742" height="231" key="GridCell.Tab.0.left/0.23.1920.984@0.23.1920.984" timestamp="1623443620972" />
     <state width="1586" height="303" key="GridCell.Tab.0.left/0.23.1920.986@0.23.1920.986" timestamp="1623439394252" />
     <state width="1291" height="229" key="GridCell.Tab.0.left/0.23.1920.988@0.23.1920.988" timestamp="1623412468821" />
-    <state width="1586" height="303" key="GridCell.Tab.0.right" timestamp="1623439886573">
+    <state width="1742" height="231" key="GridCell.Tab.0.right" timestamp="1623443620973">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1586" height="303" key="GridCell.Tab.0.right/0.23.1920.984@0.23.1920.984" timestamp="1623439886573" />
+    <state width="1742" height="231" key="GridCell.Tab.0.right/0.23.1920.984@0.23.1920.984" timestamp="1623443620973" />
     <state width="1586" height="303" key="GridCell.Tab.0.right/0.23.1920.986@0.23.1920.986" timestamp="1623439394253" />
     <state width="1291" height="229" key="GridCell.Tab.0.right/0.23.1920.988@0.23.1920.988" timestamp="1623412468822" />
     <state x="279" y="266" key="Vcs.Push.Dialog.v2" timestamp="1623427896702">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
     <state x="279" y="266" key="Vcs.Push.Dialog.v2/0.23.1920.984@0.23.1920.984" timestamp="1623427896702" />
-    <state x="386" y="280" width="909" height="603" key="find.popup" timestamp="1623439132631">
-      <screen x="0" y="23" width="1920" height="986" />
+    <state x="781" y="252" width="909" height="602" key="find.popup" timestamp="1623441933559">
+      <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state x="781" y="252" width="909" height="602" key="find.popup/0.23.1920.984@0.23.1920.984" timestamp="1623433299959" />
+    <state x="781" y="252" width="909" height="602" key="find.popup/0.23.1920.984@0.23.1920.984" timestamp="1623441933559" />
     <state x="386" y="280" width="909" height="603" key="find.popup/0.23.1920.986@0.23.1920.986" timestamp="1623439132631" />
     <state x="386" y="281" width="586" height="490" key="find.popup/0.23.1920.988@0.23.1920.988" timestamp="1623417833838" />
     <state x="492" y="422" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1623427879611">
@@ -96,6 +98,14 @@
           <url>file://$PROJECT_DIR$/lib/factory/houghcircles/houghcircles_factory.dart</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/miscellaneous/AdaptiveThresholdFactory.kt</url>
+          <line>12</line>
+          <properties class="ar.fgsoruco.opencv4.factory.miscellaneous.AdaptiveThresholdFactory.Companion" method="process">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

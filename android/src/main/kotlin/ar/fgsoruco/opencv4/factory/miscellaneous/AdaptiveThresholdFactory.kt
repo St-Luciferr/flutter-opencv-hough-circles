@@ -9,10 +9,10 @@ import java.io.InputStream
 import io.flutter.plugin.common.MethodChannel
 
 class AdaptiveThresholdFactory {
-    companion object{
-        fun process(pathType: Int,pathString: String, data: ByteArray, maxValue: Double, adaptiveMethod: Int, thresholdType: Int,
+    companion object {
+        fun process(pathType: Int, pathString: String, data: ByteArray, maxValue: Double, adaptiveMethod: Int, thresholdType: Int,
                     blockSize: Int, constantValue: Double, result: MethodChannel.Result) {
-            when (pathType){
+            when (pathType) {
                 1 -> result.success(adaptiveThresholdS(pathString, maxValue, adaptiveMethod, thresholdType,
                         blockSize, constantValue))
                 2 -> result.success(adaptiveThresholdB(data, maxValue, adaptiveMethod, thresholdType,
@@ -23,11 +23,9 @@ class AdaptiveThresholdFactory {
         }
 
         //Module: Miscellaneous Image Transformations
-        private fun adaptiveThresholdS(pathString: String, maxValue: Double, adaptiveMethod: Int, thresholdType: Int,
-                                       blockSize: Int, constantValue: Double): ByteArray? {
+        private fun adaptiveThresholdS(pathString: String, maxValue: Double, adaptiveMethod: Int, thresholdType: Int, blockSize: Int, constantValue: Double): ByteArray? {
             val inputStream: InputStream = FileInputStream(pathString.replace("file://", ""))
             val data: ByteArray = inputStream.readBytes()
-
             try {
                 var byteArray = ByteArray(0)
                 val srcGray = Mat()
@@ -40,7 +38,6 @@ class AdaptiveThresholdFactory {
 
                 // Adaptive Thresholding
                 Imgproc.adaptiveThreshold(srcGray, dst, maxValue, adaptiveMethod, thresholdType, blockSize, constantValue)
-
                 // instantiating an empty MatOfByte class
                 val matOfByte = MatOfByte()
                 // Converting the Mat object to MatOfByte
@@ -51,13 +48,10 @@ class AdaptiveThresholdFactory {
                 println("OpenCV Error: $e")
                 return data
             }
-
         }
 
         //Module: Miscellaneous Image Transformations
-        private fun adaptiveThresholdB(data: ByteArray, maxValue: Double, adaptiveMethod: Int, thresholdType: Int,
-                                       blockSize: Int, constantValue: Double): ByteArray? {
-
+        private fun adaptiveThresholdB(data: ByteArray, maxValue: Double, adaptiveMethod: Int, thresholdType: Int, blockSize: Int, constantValue: Double): ByteArray? {
             try {
                 var byteArray = ByteArray(0)
                 val srcGray = Mat()
