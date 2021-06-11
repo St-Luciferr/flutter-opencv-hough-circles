@@ -12,6 +12,7 @@ import 'package:opencv_4/factory/utils.dart';
 ///Class for process [HoughCircles]
 class HoughCirclesFactory {
   static const platform = const MethodChannel('opencv_4');
+  static String name = 'houghCircles';
 
   static Future<Uint8List?> houghCircles({
     required CVPathFrom pathFrom,
@@ -35,7 +36,7 @@ class HoughCirclesFactory {
 
     switch (pathFrom) {
       case CVPathFrom.GALLERY_CAMERA:
-        result = await platform.invokeMethod('houghcircles', {
+        result = await platform.invokeMethod(name, {
           'method': method,
           'dp': dp,
           'minDist': minDist,
@@ -51,7 +52,7 @@ class HoughCirclesFactory {
         break;
       case CVPathFrom.URL:
         _file = await DefaultCacheManager().getSingleFile(pathString);
-        result = await platform.invokeMethod('houghcircles', {
+        result = await platform.invokeMethod(name, {
           'method': method,
           'dp': dp,
           'minDist': minDist,
@@ -68,7 +69,7 @@ class HoughCirclesFactory {
         break;
       case CVPathFrom.ASSETS:
         _fileAssets = await Utils.imgAssets2Uint8List(pathString);
-        result = await platform.invokeMethod('houghcircles', {
+        result = await platform.invokeMethod(name, {
           'method': method,
           'dp': dp,
           'minDist': minDist,
