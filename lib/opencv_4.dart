@@ -589,26 +589,29 @@ class Cv2 {
     return result;
   }
 
-  /// [HoughCircles] function of Module: Miscellaneous Image Transformations
+  /// [HoughCircles] function of Module: Hough Circles
   static Future<dynamic> houghCircles({
     CVPathFrom pathFrom = CVPathFrom.ASSETS,
     required String pathString,
-    required double maxValue,
-    required int adaptiveMethod,
-    required int thresholdType,
-    required int blockSize,
-    required double constantValue,
+    required int method,
+    required double dp,
+    required double minDist,
+    required double param1,
+    required double param2,
+    required int minRadius,
+    required int maxRadius,
   }) async {
     /// Variable to store operation result
     final dynamic result = await HoughCirclesFactory.houghCircles(
-      pathFrom: pathFrom,
-      pathString: pathString,
-      maxValue: maxValue,
-      adaptiveMethod: adaptiveMethod,
-      thresholdType: thresholdType,
-      blockSize: blockSize,
-      constantValue: constantValue,
-    );
+        pathFrom: pathFrom,
+        pathString: pathString,
+        method: 3,
+        dp: 2.1,
+        minDist: 10,
+        param1: 150,
+        param2: 100,
+        minRadius: 5,
+        maxRadius: 50);
 
     /// Function returns the response from method channel
     return result;

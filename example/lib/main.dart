@@ -3,10 +3,11 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:opencv_4/factory/pathfrom.dart';
-import 'package:opencv_4/opencv_4.dart';
+
 //uncomment when image_picker is installed
 import 'package:image_picker/image_picker.dart';
+import 'package:opencv_4/factory/pathfrom.dart';
+import 'package:opencv_4/opencv_4.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Uint8List? _byte, salida;
   String _versionOpenCV = 'OpenCV';
   bool _visible = false;
+
   //uncomment when image_picker is installed
   final picker = ImagePicker();
 
@@ -58,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }) async {
     try {
       //test with threshold
-     /* _byte = await Cv2.threshold(
+      /* _byte = await Cv2.threshold(
         pathFrom: pathFrom,
         pathString: pathString,
         maxThresholdValue: maxThresholdValue,
@@ -67,14 +69,23 @@ class _MyHomePageState extends State<MyHomePage> {
       );*/
 
       _byte = await Cv2.houghCircles(
+          pathFrom: pathFrom,
+          pathString: pathString,
+          method: 3,
+          dp: 1.3,
+          minDist: 20,
+          param1: 40,
+          param2: 30,
+          minRadius: 5,
+          maxRadius: 20);
+/*
+      _byte = await Cv2.scharr(
         pathFrom: pathFrom,
         pathString: pathString,
-        maxValue: 125,
-        adaptiveMethod: Cv2.ADAPTIVE_THRESH_MEAN_C,
-        thresholdType: Cv2.THRESH_BINARY,
-        blockSize: 11,
-        constantValue: 12,
-      );
+        depth: Cv2.CV_SCHARR,
+        dx: 0,
+        dy: 1,
+      );*/
 
       setState(() {
         _byte;
@@ -96,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   _testFromAssets() async {
     testOpenCV(
       pathFrom: CVPathFrom.ASSETS,
-      pathString: 'assets/Test.JPG',
+      pathString: 'assets/etalon4.png',
       thresholdValue: 150,
       maxThresholdValue: 200,
       thresholdType: Cv2.THRESH_BINARY,
@@ -130,7 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
       thresholdValue: 150,
       maxThresholdValue: 200,
       thresholdType: Cv2.THRESH_BINARY,
-
     );
 
     setState(() {
