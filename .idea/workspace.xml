@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0c8279b-d102-429f-acc5-7cc2d33524f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/Opencv4Plugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/Opencv4Plugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/houghcircles/HoughCirclesFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/houghcircles/HoughCirclesFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/miscellaneous/AdaptiveThresholdFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/ar/fgsoruco/opencv4/factory/miscellaneous/AdaptiveThresholdFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,28 +52,28 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1742" height="231" key="GridCell.Tab.0.bottom" timestamp="1623443620973">
+    <state width="1742" height="231" key="GridCell.Tab.0.bottom" timestamp="1623444472577">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1742" height="231" key="GridCell.Tab.0.bottom/0.23.1920.984@0.23.1920.984" timestamp="1623443620973" />
+    <state width="1742" height="231" key="GridCell.Tab.0.bottom/0.23.1920.984@0.23.1920.984" timestamp="1623444472577" />
     <state width="1586" height="303" key="GridCell.Tab.0.bottom/0.23.1920.986@0.23.1920.986" timestamp="1623439394254" />
     <state width="1291" height="229" key="GridCell.Tab.0.bottom/0.23.1920.988@0.23.1920.988" timestamp="1623412468823" />
-    <state width="1742" height="231" key="GridCell.Tab.0.center" timestamp="1623443620972">
+    <state width="1742" height="231" key="GridCell.Tab.0.center" timestamp="1623444472576">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1742" height="231" key="GridCell.Tab.0.center/0.23.1920.984@0.23.1920.984" timestamp="1623443620972" />
+    <state width="1742" height="231" key="GridCell.Tab.0.center/0.23.1920.984@0.23.1920.984" timestamp="1623444472576" />
     <state width="1586" height="303" key="GridCell.Tab.0.center/0.23.1920.986@0.23.1920.986" timestamp="1623439394253" />
     <state width="1291" height="229" key="GridCell.Tab.0.center/0.23.1920.988@0.23.1920.988" timestamp="1623412468822" />
-    <state width="1742" height="231" key="GridCell.Tab.0.left" timestamp="1623443620972">
+    <state width="1742" height="231" key="GridCell.Tab.0.left" timestamp="1623444472576">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1742" height="231" key="GridCell.Tab.0.left/0.23.1920.984@0.23.1920.984" timestamp="1623443620972" />
+    <state width="1742" height="231" key="GridCell.Tab.0.left/0.23.1920.984@0.23.1920.984" timestamp="1623444472576" />
     <state width="1586" height="303" key="GridCell.Tab.0.left/0.23.1920.986@0.23.1920.986" timestamp="1623439394252" />
     <state width="1291" height="229" key="GridCell.Tab.0.left/0.23.1920.988@0.23.1920.988" timestamp="1623412468821" />
-    <state width="1742" height="231" key="GridCell.Tab.0.right" timestamp="1623443620973">
+    <state width="1742" height="231" key="GridCell.Tab.0.right" timestamp="1623444472577">
       <screen x="0" y="23" width="1920" height="984" />
     </state>
-    <state width="1742" height="231" key="GridCell.Tab.0.right/0.23.1920.984@0.23.1920.984" timestamp="1623443620973" />
+    <state width="1742" height="231" key="GridCell.Tab.0.right/0.23.1920.984@0.23.1920.984" timestamp="1623444472577" />
     <state width="1586" height="303" key="GridCell.Tab.0.right/0.23.1920.986@0.23.1920.986" timestamp="1623439394253" />
     <state width="1291" height="229" key="GridCell.Tab.0.right/0.23.1920.988@0.23.1920.988" timestamp="1623412468822" />
     <state x="279" y="266" key="Vcs.Push.Dialog.v2" timestamp="1623427896702">

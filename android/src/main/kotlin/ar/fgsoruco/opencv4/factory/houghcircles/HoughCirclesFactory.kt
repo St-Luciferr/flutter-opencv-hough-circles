@@ -31,22 +31,13 @@ class HoughCirclesFactory {
                     minRadius: Int, maxRadius: Int,
                     result: MethodChannel.Result) {
             when (pathType) {
-                1 -> result.success(HoughCirclesS(pathString, method, dp, minDist, param1, param2,
+                1 -> result.success(houghCirclesS(pathString, method, dp, minDist, param1, param2,
                         minRadius, maxRadius, centerWidth,
                         centerColor, circleWidth, circleColor))
-                2 -> result.success(HoughCirclesB(pathString, data,
-                        method, dp, minDist,
-                        param1, param2,
-                        centerWidth, centerColor,
-                        circleWidth, circleColor,
-                        minRadius, maxRadius))
-                3 -> result.success(HoughCirclesB(pathString, data,
-                        method, dp, minDist,
-                        param1, param2,
-                        centerWidth, centerColor,
-                        circleWidth, circleColor,
-                        minRadius, maxRadius))
-            }
+               2 -> result.success(
+                        houghCirclesB(data,method, dp, minDist,param1, param2,centerWidth, centerColor,circleWidth, circleColor,minRadius, maxRadius))
+                3 -> result.success(houghCirclesB(data,method, dp, minDist,param1, param2,centerWidth, centerColor,circleWidth, circleColor,minRadius, maxRadius))
+           }
         }
 
 
@@ -57,7 +48,7 @@ class HoughCirclesFactory {
             return Scalar(on1, on2, on3)
         }
 
-        private fun HoughCirclesS(pathString: String,
+        private fun houghCirclesS(pathString: String,
                       method: Int, dp: Double, minDist: Double, param1: Double, param2: Double,
                       minRadius: Int, maxRadius: Int,
                       centerWidth: Int, centerColor: String,
@@ -94,21 +85,21 @@ class HoughCirclesFactory {
         }
     }
 
-    //Module: Miscellaneous Image Transformations
-    private fun HoughCirclesB(pathString: String, data: ByteArray,
+
+    private fun houghCirclesB(data: ByteArray,
                               method: Int, dp: Double, minDist: Double,
                               param1: Double, param2: Double,
                               centerWidth: Int, centerColor: String,
                               circleWidth: Int, circleColor: String,
-                              minRadius: Int, maxRadius: Int): ByteArray?
-    {
+                              minRadius: Int, maxRadius: Int): ByteArray? {
+
         var byteArray = ByteArray(0)
         try {
             val circles = Mat()
             val srcGray = Mat()
             val dst = Mat()
             // Decode image from input byte array
-            val src: Mat = Imgcodecs.imdecode(MatOfByte(byteData), Imgcodecs.IMREAD_UNCHANGED)
+            val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
             Imgproc.HoughCircles(src, circles, method, dp, minDist, param1, param2, minRadius, maxRadius)
             if (circles.cols() > 0) {
                 for (x in 0 until circles.cols()) {
@@ -127,6 +118,46 @@ class HoughCirclesFactory {
             return byteArray
         } catch (e: Exception) {
             System.out.println("OpenCV Error: " + e.toString())
+            return data
+        }
+
+    }
+
+
+    //Module: Miscellaneous Image Transformations
+    private fun houghCirclesB2(data: ByteArray,
+                              method: Int, dp: Double, minDist: Double,
+                              param1: Double, param2: Double,
+                              centerWidth: Int, centerColor: String,
+                              circleWidth: Int, circleColor: String,
+                              minRadius: Int, maxRadius: Int): ByteArray?
+    {
+        var byteArray = ByteArray(0)
+        try {
+            val circles = Mat()
+            val srcGray = Mat()
+            val dst = Mat()
+            // Decode image from input byte array
+            val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
+            Imgproc.HoughCircles(src, circles, method, dp, minDist, param1, param2, minRadius, maxRadius)
+            if (circles.cols() > 0) {
+                for (x in 0 until circles.cols()) {
+                    val circleVec: DoubleArray = circles.get(0, x) ?: break
+                    val center = Point(circleVec[0].toDouble(), circleVec[1].toDouble())
+                    val radius = circleVec[2].toInt()
+                    Imgproc.circle(src, center, 3, convertColorToScalar(centerColor), centerWidth)
+                    Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
+                }
+            }
+            // instantiating an empty MatOfByte class
+            val matOfByte = MatOfByte()
+            // Converting the Mat object to MatOfByte
+            Imgcodecs.imencode(".jpg", src, matOfByte)
+            byteArray = matOfByte.toArray()
+            return byteArray
+        } catch (e: Exception) {
+            System.out.println("OpenCV Error: " + e.toString())
+            return data
         }
     }
 }
