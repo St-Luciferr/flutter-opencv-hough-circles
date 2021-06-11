@@ -67,8 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
       );*/
 
       _byte = await Cv2.houghCircles(
-        pathFrom: CVPathFrom.ASSETS,
-        pathString: 'assets/etalon4.png',
+        pathFrom: pathFrom,
+        pathString: pathString,
         maxValue: 125,
         adaptiveMethod: Cv2.ADAPTIVE_THRESH_MEAN_C,
         thresholdType: Cv2.THRESH_BINARY,
@@ -130,6 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
       thresholdValue: 150,
       maxThresholdValue: 200,
       thresholdType: Cv2.THRESH_BINARY,
+
     );
 
     setState(() {
