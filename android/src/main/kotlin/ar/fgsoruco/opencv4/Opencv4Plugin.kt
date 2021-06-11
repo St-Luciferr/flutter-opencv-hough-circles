@@ -268,16 +268,14 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
       // houghCircles
       "houghCircles" -> {
         try {
-          AdaptiveThresholdFactory.process(
-                  call.argument<Int>("pathType") as Int,
+          HoughCirclesFactory.process(
+                  call.argument<String>("pathFrom") as String,
                   call.argument<String>("pathString") as String,
                   call.argument<Int>("method") as int,
                   call.argument<Double>("dp") as Double,
                   call.argument<Double>("minDist") as Double,
                   call.argument<Double>("param1") as Double,
                   call.argument<Double>("param2") as Double,
-                  call.argument<Int>("constantValue") as int,
-                  call.argument<Int>("constantValue") as int,
                   call.argument<Int>("centerWidth") as int,
                   call.argument<String>("centerColor") as String,
                   call.argument<Int>("circleWidth") as int,
