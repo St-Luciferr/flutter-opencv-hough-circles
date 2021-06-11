@@ -605,13 +605,13 @@ class Cv2 {
     final dynamic result = await HoughCirclesFactory.houghCircles(
         pathFrom: pathFrom,
         pathString: pathString,
-        method: 3,
-        dp: 2.1,
-        minDist: 10,
-        param1: 150,
-        param2: 100,
-        minRadius: 5,
-        maxRadius: 50);
+        method: method,
+        dp: dp,
+        minDist: minDist,
+        param1: param1,
+        param2: param2,
+        minRadius: minRadius,
+        maxRadius: maxRadius);
 
     /// Function returns the response from method channel
     return result;

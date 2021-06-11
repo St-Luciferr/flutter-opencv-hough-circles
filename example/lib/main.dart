@@ -88,7 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
       );*/
 
       setState(() {
-        _byte;
         _visible = false;
       });
     } on PlatformException catch (e) {
