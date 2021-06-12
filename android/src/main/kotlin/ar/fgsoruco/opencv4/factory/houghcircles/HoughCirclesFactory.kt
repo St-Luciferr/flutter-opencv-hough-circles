@@ -50,11 +50,16 @@ class HoughCirclesFactory {
                     for (x in 0 until circles.cols()) {
                         val circleVec: DoubleArray = circles.get(0, x) ?: break
                         val center = Point(circleVec[0].toDouble(), circleVec[1].toDouble())
+                        val row = circleVec[0]
+                        val col = circleVec[1]
 
                         print("--> 54 circleVec[1]  " + circleVec[0].toString())
                         println(" circleVec[1] " + circleVec[1].toString())
                         val radius = circleVec[2].toInt()
                         println("--> 55 radius " + radius.toString())
+                        println("--> 55 row " + row.toString())
+                        println("--> 55 col " + col.toString())
+                        println("--> 55 channels " + channels.toString())
 
                         print("--> 55 minRadius " + minRadius.toString())
                         println(" maxRadius " + maxRadius.toString())
@@ -62,6 +67,21 @@ class HoughCirclesFactory {
                         println(" centerWidth " + centerWidth.toString())
                         print("--> 55 circleColor " + circleColor.toString())
                         println(" circleWidth " + circleWidth.toString())
+                        println(" circles.get(row, col) " + circles.get(row, col)col .toString())
+
+                       /* if (circles.isContinuous()) {
+                            val R = Imgproc.
+                            get(circles, row * circles.cols * channels + col * channels)
+                           *//* val G: let = circles.data.get(row * circles.cols * channels + col * channels + 1)
+                            val B: let = circles.data.get(row * circles.cols * channels + col * channels + 2)
+                            val A: let = circles.data.get(row * circles.cols * channels + col * channels + 3)*//*
+                        }*/
+
+//                        println(" R " + R.toString())
+                       /* println(" G " + G.toString())
+                        println(" B " + B.toString())
+                        println(" A " + A.toString())*/
+
 //                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
                         Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
 //                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
