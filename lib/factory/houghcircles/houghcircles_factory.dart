@@ -24,10 +24,10 @@ class HoughCirclesFactory {
     required double param2,
     required int minRadius,
     required int maxRadius,
-    int centerWidth = 2,
-    String centerColor = "#ff0000",
-    int circleWidth = 2,
-    String circleColor = "#ffffff"
+    int centerWidth = 28,
+    String centerColor = "#FF0000",
+    int circleWidth = 28,
+    String circleColor = "#FFFFFFF"
   }) async {
     File _file;
     Uint8List _fileAssets;

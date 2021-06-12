@@ -273,7 +273,6 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
                   call.argument<Int>("pathType") as Int,
                   call.argument<String>("pathString") as String,
                   call.argument<ByteArray>("data") as ByteArray,
-
                   call.argument<Int>("method") as Int,
                   call.argument<Double>("dp") as Double,
                   call.argument<Double>("minDist") as Double,
@@ -287,7 +286,7 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
                   call.argument<Int>("maxRadius") as Int,
                   result)
         } catch (e: Exception) {
-          result.error("OpenCV-Error", "houghCircles Android: "+e.message, e)
+          result.error("OpenCV-Error", "--> 290 HoughCirclesFactory Android: "+e.message, e)
         }
       }
       //Module: Miscellaneous Image Transformations
@@ -304,7 +303,7 @@ class Opencv4Plugin: FlutterPlugin, MethodCallHandler {
                   call.argument<Double>("constantValue") as Double,
                   result)
         } catch (e: Exception) {
-          result.error("OpenCV-Error", "Android: "+e.message, e)
+          result.error("OpenCV-Error", "--> 306 AdaptiveThresholdFactory Android: "+e.message, e)
         }
       }
       "distanceTransform" -> {

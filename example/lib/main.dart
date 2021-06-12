@@ -72,12 +72,13 @@ class _MyHomePageState extends State<MyHomePage> {
           pathFrom: pathFrom,
           pathString: pathString,
           method: 3,
-          dp: 1.3,
-          minDist: 20,
-          param1: 40,
-          param2: 30,
-          minRadius: 5,
-          maxRadius: 20);
+          dp: 2.0,
+          minDist: 240,
+          param1: 100,
+          param2: 100,
+          minRadius: 100,
+          maxRadius: 200);
+
 /*
       _byte = await Cv2.scharr(
         pathFrom: pathFrom,
