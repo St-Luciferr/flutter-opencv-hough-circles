@@ -600,6 +600,10 @@ class Cv2 {
     required double param2,
     required int minRadius,
     required int maxRadius,
+    required int centerWidth,
+    required String centerColor,
+    required int circleWidth,
+    required String circleColor,
   }) async {
     /// Variable to store operation result
     final dynamic result = await HoughCirclesFactory.houghCircles(
@@ -610,6 +614,10 @@ class Cv2 {
         minDist: minDist,
         param1: param1,
         param2: param2,
+        centerWidth: centerWidth,
+        centerColor: centerColor,
+        circleWidth: circleWidth,
+        circleColor: circleColor,
         minRadius: minRadius,
         maxRadius: maxRadius);
 

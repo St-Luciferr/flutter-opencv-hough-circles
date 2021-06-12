@@ -77,7 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
           param1: 100,
           param2: 100,
           minRadius: 100,
-          maxRadius: 200);
+          maxRadius: 200,
+
+          centerWidth: 10,
+          centerColor: "#FF0000",
+          circleWidth: 28,
+          circleColor: "#FFFFFFF");
 
 /*
       _byte = await Cv2.scharr(
