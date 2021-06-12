@@ -43,12 +43,12 @@ class HoughCirclesFactory {
             try {
                 val circles = Mat()
                 val srcGray = Mat()
-                val small = Mat()
                 // Decode image from input byte array
                 val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
+
+                val small = src
                 Imgproc.cvtColor(src, srcGray, Imgproc.COLOR_BGR2GRAY)
 
-                Imgproc.cvtColor(src, small, Imgproc.COLOR_BGR2RGB)
                 Imgproc.HoughCircles(srcGray, circles, method, dp, minDist, param1, param2, minRadius, maxRadius)
                 if (circles.cols() > 0) {
                     for (x in 0 until circles.cols()) {
@@ -70,15 +70,24 @@ class HoughCirclesFactory {
                         println(" centerWidth " + centerWidth.toString())
                         print("--> 55 circleColor " + circleColor.toString())
                         println(" circleWidth " + circleWidth.toString())
-//                        println(" circles.get(row, col) " + circles.get(row, col) .toString())
-
 
 //                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
                         Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
 //                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
                         Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
+
+                        val scal: DoubleArray = small.get(col,row)
+
+                        println(" R " + scal[2].toString())
+                        println(" G " + scal[1].toString())
+                        println(" B " + scal[0].toString())
+                        println(" A " + scal[3].toString())
+
+                        val hexValue = toHex(scal[2], scal[1], scal[0])
+
+                        println(" circleWidth " + circleWidth.toString())
                         Imgproc.putText(src,
-                                "#FDAEEE",
+                                hexValue,
                                 Point(col - 220,row - 180), // Coordinates
                                 2, //FONT_HERSHEY_DUPLEX = 0, // Font
 //                                6, //FONT_HERSHEY_COMPLEX_SMALL, // Font
@@ -87,13 +96,6 @@ class HoughCirclesFactory {
                                 3, // Line Thickness (Optional)
                                 16 /*LINE_AA*/); // Anti-alias (Optional)
 //                        Scalar scal = Imgproc.at(src, col, row)
-                        val scal: DoubleArray = src[col, row)
-                        src[i, j]
-
-                        println(" R " + scal[3].toString())
-                         println(" G " + scal[1].toString())
-                         println(" B " + scal[0].toString())
-//                         println(" A " + A.toString())
                     }
                 }
                 // instantiating an empty MatOfByte class
@@ -135,6 +137,21 @@ class HoughCirclesFactory {
             val on2 : Double = color.substring(3, 5).toInt(16).toDouble()
             val on3 : Double = color.substring(5, 7).toInt(16).toDouble()
             return Scalar(on1, on2, on3)
+        }
+
+        //Displays hex representation of displayed color
+        fun toHex(red: Double, green: Double, blue: Double ): String? {
+            var r: Int = red.toInt()
+            var g: Int = green.toInt()
+            var b: Int = blue.toInt()
+            var strR: String = r.toString(16)
+            var strG: String = g.toString(16)
+            var strB: String = b.toString(16)
+            if(r < 10) strR = "0" + strR;
+            if(g < 10) strG = "0" + strG;
+            if(r < 10) strB = "0" + strB;
+            var hex: String = "#" + strR + strG + strB
+            return hex
         }
 
         private fun houghCirclesS(pathString: String,
