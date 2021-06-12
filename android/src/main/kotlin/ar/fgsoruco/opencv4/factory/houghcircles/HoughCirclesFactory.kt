@@ -62,10 +62,10 @@ class HoughCirclesFactory {
                         println(" centerWidth " + centerWidth.toString())
                         print("--> 55 circleColor " + circleColor.toString())
                         println(" circleWidth " + circleWidth.toString())
-                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
-//                        Imgproc.circle(src, center, 3, convertColorToScalar(centerColor), centerWidth)
-                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
-//                        Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
+//                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
+                        Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
+//                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
+                        Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
                     }
                 }
                 // instantiating an empty MatOfByte class
@@ -103,9 +103,9 @@ class HoughCirclesFactory {
 
 
         fun convertColorToScalar(color: String): Scalar? {
-            val on1 : Double = color.substring(1, 3).toDouble()
-            val on2 : Double = color.substring(3, 5).toDouble()
-            val on3 : Double = color.substring(5, 7).toDouble()
+            val on1 : Double = color.substring(1, 3).toInt(16).toDouble()
+            val on2 : Double = color.substring(3, 5).toInt(16).toDouble()
+            val on3 : Double = color.substring(5, 7).toInt(16).toDouble()
             return Scalar(on1, on2, on3)
         }
 
