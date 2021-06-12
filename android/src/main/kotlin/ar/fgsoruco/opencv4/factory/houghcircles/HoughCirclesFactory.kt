@@ -39,12 +39,16 @@ class HoughCirclesFactory {
                                      minRadius: Int, maxRadius: Int): ByteArray? {
 
             var byteArray = ByteArray(0)
+            var intArray = IntArray(0)
             try {
                 val circles = Mat()
                 val srcGray = Mat()
+                val small = Mat()
                 // Decode image from input byte array
                 val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
                 Imgproc.cvtColor(src, srcGray, Imgproc.COLOR_BGR2GRAY)
+
+                Imgproc.cvtColor(src, small, Imgproc.COLOR_BGR2RGB)
                 Imgproc.HoughCircles(srcGray, circles, method, dp, minDist, param1, param2, minRadius, maxRadius)
                 if (circles.cols() > 0) {
                     for (x in 0 until circles.cols()) {
@@ -59,7 +63,6 @@ class HoughCirclesFactory {
                         println("--> 55 radius " + radius.toString())
                         println("--> 55 row " + row.toString())
                         println("--> 55 col " + col.toString())
-                        println("--> 55 channels " + channels.toString())
 
                         print("--> 55 minRadius " + minRadius.toString())
                         println(" maxRadius " + maxRadius.toString())
@@ -67,25 +70,30 @@ class HoughCirclesFactory {
                         println(" centerWidth " + centerWidth.toString())
                         print("--> 55 circleColor " + circleColor.toString())
                         println(" circleWidth " + circleWidth.toString())
-                        println(" circles.get(row, col) " + circles.get(row, col)col .toString())
+//                        println(" circles.get(row, col) " + circles.get(row, col) .toString())
 
-                       /* if (circles.isContinuous()) {
-                            val R = Imgproc.
-                            get(circles, row * circles.cols * channels + col * channels)
-                           *//* val G: let = circles.data.get(row * circles.cols * channels + col * channels + 1)
-                            val B: let = circles.data.get(row * circles.cols * channels + col * channels + 2)
-                            val A: let = circles.data.get(row * circles.cols * channels + col * channels + 3)*//*
-                        }*/
-
-//                        println(" R " + R.toString())
-                       /* println(" G " + G.toString())
-                        println(" B " + B.toString())
-                        println(" A " + A.toString())*/
 
 //                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
                         Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
 //                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
                         Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
+                        Imgproc.putText(src,
+                                "#FDAEEE",
+                                Point(col - 220,row - 180), // Coordinates
+                                2, //FONT_HERSHEY_DUPLEX = 0, // Font
+//                                6, //FONT_HERSHEY_COMPLEX_SMALL, // Font
+                                2.3, // Scale. 2.0 = 2x bigger
+                                Scalar(0.0,255.0,255.0), // BGR Color
+                                3, // Line Thickness (Optional)
+                                16 /*LINE_AA*/); // Anti-alias (Optional)
+//                        Scalar scal = Imgproc.at(src, col, row)
+                        val scal: DoubleArray = src[col, row)
+                        src[i, j]
+
+                        println(" R " + scal[3].toString())
+                         println(" G " + scal[1].toString())
+                         println(" B " + scal[0].toString())
+//                         println(" A " + A.toString())
                     }
                 }
                 // instantiating an empty MatOfByte class
@@ -144,42 +152,4 @@ class HoughCirclesFactory {
         }
     }
 
-
-/*
-    //Module: Miscellaneous Image Transformations
-    private fun houghCirclesB2(data: ByteArray,
-                              method: Int, dp: Double, minDist: Double,
-                              param1: Double, param2: Double,
-                              centerWidth: Int, centerColor: String,
-                              circleWidth: Int, circleColor: String,
-                              minRadius: Int, maxRadius: Int): ByteArray?
-    {
-        var byteArray = ByteArray(0)
-        try {
-            val circles = Mat()
-            val srcGray = Mat()
-            val dst = Mat()
-            // Decode image from input byte array
-            val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
-            Imgproc.HoughCircles(src, circles, method, dp, minDist, param1, param2, minRadius, maxRadius)
-            if (circles.cols() > 0) {
-                for (x in 0 until circles.cols()) {
-                    val circleVec: DoubleArray = circles.get(0, x) ?: break
-                    val center = Point(circleVec[0].toDouble(), circleVec[1].toDouble())
-                    val radius = circleVec[2].toInt()
-                    Imgproc.circle(src, center, 3, convertColorToScalar(centerColor), centerWidth)
-                    Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
-                }
-            }
-            // instantiating an empty MatOfByte class
-            val matOfByte = MatOfByte()
-            // Converting the Mat object to MatOfByte
-            Imgcodecs.imencode(".jpg", src, matOfByte)
-            byteArray = matOfByte.toArray()
-            return byteArray
-        } catch (e: Exception) {
-            System.out.println("OpenCV Error: " + e.toString())
-            return data
-        }
-    }*/
 }
