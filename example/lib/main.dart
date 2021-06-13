@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _getOpenCVVersion() async {
     String? versionOpenCV = await Cv2.version();
     setState(() {
-      _versionOpenCV = 'OpenCV: ' + versionOpenCV!;
+      _versionOpenCV = 'Soil Color';
     });
   }
 

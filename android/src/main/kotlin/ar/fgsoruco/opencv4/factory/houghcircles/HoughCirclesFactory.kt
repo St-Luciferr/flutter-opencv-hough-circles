@@ -43,6 +43,7 @@ class HoughCirclesFactory {
             try {
                 val circles = Mat()
                 val srcGray = Mat()
+                var srcNew = Mat()
                 // Decode image from input byte array
                 val src: Mat = Imgcodecs.imdecode(MatOfByte(*data), Imgcodecs.IMREAD_UNCHANGED)
 
@@ -72,26 +73,69 @@ class HoughCirclesFactory {
                         println(" circleWidth " + circleWidth.toString())
 
 //                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
-                        Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
+//                        Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
 //                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
                         Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
 
-                        val scal: DoubleArray = small.get(col,row)
+                        val scal: DoubleArray = small.get(row .toInt(),col.toInt())
+                        val scalMean: DoubleArray = small.get(row .toInt(),col.toInt())
+                        val b = 0 // blue index 0
+                        val g = 0 // green index 1
+                        val r = 0 // red index 2
 
-                        println(" R " + scal[2].toString())
+                        val meanBadd: Double = 0.0
+                        val meanGadd: Double = 0.0
+                        val meanRadd: Double = 0.0
+                        var n = 0
+                        for (x in 0 until circles.cols()) {
+                            for (y in 0 until circles.rows()) {
+                                n++
+                                scalMean = small.get(y .toInt(),x.toInt())
+                                meanBadd += scalMean[0]
+                                meanGadd += scalMean[1]
+                                meanRadd += scalMean[2]
+                            }
+                        }
+                        println(" meanBadd = " + meanBadd.toString() + " meanGadd = " meanGadd.toString() + " meanRadd = " meanRadd.toString() )
+
+                        val meanB: Double = meanBadd / n
+                        val meanG: Double = meanGadd / n
+                        val meanR: Double = meanRadd / n
+                        println(" meanB = " + meanB.toString() + " meanG = " meanG.toString() + " meanR = " meanR.toString() )
+
+                        println(" B " + meanB.toString())
+                        println(" G " + meanG.toString())
+                        println(" R " + meanR.toString())
+
+/*                        println(" R " + scal[2].toString())
                         println(" G " + scal[1].toString())
                         println(" B " + scal[0].toString())
-                        println(" A " + scal[3].toString())
+                        println(" A " + scal[3].toString())*/
 
-                        val hexValue = toHex(scal[2], scal[1], scal[0])
+                        val hexValueBGR = toHex(meanB, meanG, meanR)
+                        val hexValueRGB = toHex(meanR, meanG, meanB)
+                        println(" hexValueBGR " + hexValueBGR.toString())
+                        println(" hexValueRGB " + hexValueRGB.toString())
 
+                        // converted to RGB
+//                        Imgproc.circle(src, center, radius, Scalar(scal[2], scal[1], scal[0]), circleWidth)
+                        // original u BGR
+
+                        val centerCompare = Point((circleVec[0]-radius-130).toDouble(), circleVec[1].toDouble())
+                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanB, meanG, meanR), 100) // bgr
+//                        Imgproc.circle(src, centerCompare, radius/2, Scalar(scal[0], scal[1], scal[2]), 100) // bgr
+//                        Imgproc.circle(src, centerCompare, radius/2, convertColorToScalar("#7fdfe8"), 100)
+//                        Imgproc.circle(src, centerCompare, radius, convertColorToScalar("#3bd7fc"), 100)
+// #fcd73b to je rgb
+                        // fcd73b in BGR : 3bd7fc
+                        // e8df7f -> 7fdfe8
                         println(" circleWidth " + circleWidth.toString())
                         Imgproc.putText(src,
-                                hexValue,
-                                Point(col - 220,row - 180), // Coordinates
+                                hexValueRGB,
+                                Point(row - radius,col - radius - 10), // Coordinates
                                 2, //FONT_HERSHEY_DUPLEX = 0, // Font
 //                                6, //FONT_HERSHEY_COMPLEX_SMALL, // Font
-                                2.3, // Scale. 2.0 = 2x bigger
+                                2.7, // Scale. 2.0 = 2x bigger
                                 Scalar(0.0,255.0,255.0), // BGR Color
                                 3, // Line Thickness (Optional)
                                 16 /*LINE_AA*/); // Anti-alias (Optional)
@@ -140,17 +184,17 @@ class HoughCirclesFactory {
         }
 
         //Displays hex representation of displayed color
-        fun toHex(red: Double, green: Double, blue: Double ): String? {
+        fun toHex(red: Double, green: Double, blue: Double ): String {
             var r: Int = red.toInt()
             var g: Int = green.toInt()
             var b: Int = blue.toInt()
             var strR: String = r.toString(16)
             var strG: String = g.toString(16)
             var strB: String = b.toString(16)
-            if(r < 10) strR = "0" + strR;
-            if(g < 10) strG = "0" + strG;
-            if(r < 10) strB = "0" + strB;
-            var hex: String = "#" + strR + strG + strB
+            if(r < 16) strR = "0" + strR;
+            if(g < 16) strG = "0" + strG;
+            if(r < 16) strB = "0" + strB;
+            var hex: String = "#" + strB + strG + strR
             return hex
         }
 
