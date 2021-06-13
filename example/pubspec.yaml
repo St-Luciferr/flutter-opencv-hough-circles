@@ -1,5 +1,5 @@
-name: opencv_4_example
-description: Demonstrates how to use the opencv_4 plugin.
+name: opencv4
+description: Automatically pick up the right color from soil sample using a camera in a mobile phone.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

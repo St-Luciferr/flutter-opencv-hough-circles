@@ -78,30 +78,31 @@ class HoughCirclesFactory {
                         Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
 
                         val scal: DoubleArray = small.get(row .toInt(),col.toInt())
-                        val scalMean: DoubleArray = small.get(row .toInt(),col.toInt())
+                        var scalMean: DoubleArray = small.get(row .toInt(),col.toInt())
                         val b = 0 // blue index 0
                         val g = 0 // green index 1
                         val r = 0 // red index 2
 
-                        val meanBadd: Double = 0.0
-                        val meanGadd: Double = 0.0
-                        val meanRadd: Double = 0.0
+                        var meanBadd: Double = 0.0
+                        var meanGadd: Double = 0.0
+                        var meanRadd: Double = 0.0
                         var n = 0
-                        for (x in 0 until circles.cols()) {
-                            for (y in 0 until circles.rows()) {
+                        val size = 100
+                        for (x in row.toInt()-size until row.toInt()+size) {
+                            for (y in col.toInt()-size until col.toInt()+size) {
                                 n++
-                                scalMean = small.get(y .toInt(),x.toInt())
+                                scalMean = small.get(x.toInt(),y.toInt())
                                 meanBadd += scalMean[0]
                                 meanGadd += scalMean[1]
                                 meanRadd += scalMean[2]
                             }
                         }
-                        println(" meanBadd = " + meanBadd.toString() + " meanGadd = " meanGadd.toString() + " meanRadd = " meanRadd.toString() )
+                        println(" meanBadd = " + meanBadd.toString() + " meanGadd = "+  meanGadd.toString() + " meanRadd = " + meanRadd.toString() )
 
                         val meanB: Double = meanBadd / n
                         val meanG: Double = meanGadd / n
                         val meanR: Double = meanRadd / n
-                        println(" meanB = " + meanB.toString() + " meanG = " meanG.toString() + " meanR = " meanR.toString() )
+                        println(" meanB = " + meanB.toString() + " meanG = " + meanG.toString() + " meanR = " + meanR.toString() )
 
                         println(" B " + meanB.toString())
                         println(" G " + meanG.toString())
@@ -122,7 +123,8 @@ class HoughCirclesFactory {
                         // original u BGR
 
                         val centerCompare = Point((circleVec[0]-radius-130).toDouble(), circleVec[1].toDouble())
-                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanB, meanG, meanR), 100) // bgr
+                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanR, meanG, meanB), 100) // bgr
+//                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanB, meanG, meanR), 100) // bgr
 //                        Imgproc.circle(src, centerCompare, radius/2, Scalar(scal[0], scal[1], scal[2]), 100) // bgr
 //                        Imgproc.circle(src, centerCompare, radius/2, convertColorToScalar("#7fdfe8"), 100)
 //                        Imgproc.circle(src, centerCompare, radius, convertColorToScalar("#3bd7fc"), 100)

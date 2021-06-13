@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Soil Color',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'opencv_4 Demo'),
+      home: MyHomePage(title: 'Soil Color'),
     );
   }
 }
@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width - 40,
                           child: TextButton(
-                            child: Text('test assets'),
+                            child: Text('Image from assets'),
                             onPressed: _testFromAssets,
                             style: TextButton.styleFrom(
                               primary: Colors.white,
@@ -228,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width - 40,
                           child: TextButton(
-                            child: Text('test url'),
+                            child: Text('Image from url'),
                             onPressed: _testFromUrl,
                             style: TextButton.styleFrom(
                               primary: Colors.white,
@@ -240,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width - 40,
                           child: TextButton(
-                            child: Text('test gallery'),
+                            child: Text('Image from gallery'),
                             onPressed: _testFromGallery,
                             style: TextButton.styleFrom(
                               primary: Colors.white,
@@ -252,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width - 40,
                           child: TextButton(
-                            child: Text('test camara'),
+                            child: Text('Image from camara'),
                             onPressed: _testFromCamera,
                             style: TextButton.styleFrom(
                               primary: Colors.white,
