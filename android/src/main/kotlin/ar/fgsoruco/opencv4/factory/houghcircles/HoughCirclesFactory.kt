@@ -123,7 +123,7 @@ class HoughCirclesFactory {
                         // original u BGR
 
                         val centerCompare = Point((circleVec[0]-radius-130).toDouble(), circleVec[1].toDouble())
-                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanR, meanG, meanB), 100) // bgr
+//                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanR, meanG, meanB), 100) // rgb
 //                        Imgproc.circle(src, centerCompare, radius/2, Scalar(meanB, meanG, meanR), 100) // bgr
 //                        Imgproc.circle(src, centerCompare, radius/2, Scalar(scal[0], scal[1], scal[2]), 100) // bgr
 //                        Imgproc.circle(src, centerCompare, radius/2, convertColorToScalar("#7fdfe8"), 100)
