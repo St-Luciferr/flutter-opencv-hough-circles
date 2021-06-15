@@ -73,7 +73,7 @@ class HoughCirclesFactory {
                         println(" circleWidth " + circleWidth.toString())
 
 //                        Imgproc.circle(src, center, 33, Scalar(255.0,0.0,0.0), centerWidth)
-//                        Imgproc.circle(src, center, 43, convertColorToScalar(centerColor), centerWidth)
+                        Imgproc.circle(src, center, radius / 3, convertColorToScalar(centerColor), centerWidth)
 //                        Imgproc.circle(src, center, radius, Scalar(0.0,0.0,255.0), circleWidth)
                         Imgproc.circle(src, center, radius, convertColorToScalar(circleColor), circleWidth)
 

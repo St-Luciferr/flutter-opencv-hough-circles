@@ -79,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
           minRadius: 100,
           maxRadius: 200,
 
-          centerWidth: 10,
-          centerColor: "#FFff00",
+          centerWidth: 75,
+          centerColor: "#c47244",
           circleWidth: 28,
           circleColor: "#000000");
 
