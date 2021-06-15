@@ -182,8 +182,10 @@ class HoughCirclesFactory {
             val on1 : Double = color.substring(1, 3).toInt(16).toDouble()
             val on2 : Double = color.substring(3, 5).toInt(16).toDouble()
             val on3 : Double = color.substring(5, 7).toInt(16).toDouble()
-            return Scalar(on1, on2, on3)
+//            return Scalar(on1, on2, on3) // leave it intact
+            return Scalar(on3, on2, on1) // make it BGR
         }
+
 
         //Displays hex representation of displayed color
         fun toHex(red: Double, green: Double, blue: Double ): String {

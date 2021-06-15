@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
         thresholdValue: thresholdValue,
       );*/
 
+      String fillCircleColor = "#4472c4"; // RGB
       _byte = await Cv2.houghCircles(
           pathFrom: pathFrom,
           pathString: pathString,
@@ -80,9 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
           maxRadius: 200,
 
           centerWidth: 75,
-          centerColor: "#c47244",
+          // centerColor: "#c47244", // BGR
+          centerColor: fillCircleColor, // RGB but convert it to BGR internally
           circleWidth: 28,
-          circleColor: "#000000");
+          circleColor: fillCircleColor); // RGB
 
 /*
       _byte = await Cv2.scharr(
